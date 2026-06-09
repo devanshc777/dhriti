@@ -19,9 +19,17 @@ export default function Letters() {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2">
-          {letters.map((l, i) => (
-            <LetterCard key={l.id} letter={l} index={i} />
-          ))}
+          {letters.map((l, i) => {
+            const lonelyLast = i === letters.length - 1 && letters.length % 2 === 1;
+            return (
+              <div
+                key={l.id}
+                className={lonelyLast ? "sm:col-span-2 sm:mx-auto sm:w-[calc(50%-0.75rem)]" : ""}
+              >
+                <LetterCard letter={l} index={i} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
