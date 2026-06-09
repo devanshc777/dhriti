@@ -4,8 +4,9 @@ type Props = { open: boolean; size?: number; className?: string };
 
 // A stylised lily that unfurls from a closed bud to a full bloom.
 // Two petal rings + a golden centre. Pure SVG — weightless, never breaks.
+// soft, wide water-lily petal with a rounded tip
 const PETAL =
-  "M0 0 C -22 -46 -14 -104 0 -150 C 14 -104 22 -46 0 0 Z";
+  "M0 0 C -44 -40 -40 -106 -10 -138 C -4 -145 4 -145 10 -138 C 40 -106 44 -40 0 0 Z";
 
 function Ring({
   count,

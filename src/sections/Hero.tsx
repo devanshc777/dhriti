@@ -31,7 +31,7 @@ export default function Hero({ entered }: { entered: boolean }) {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="text-xs uppercase tracking-[0.45em] text-gold"
         >
-          08 · 06 · for you
+          09 · 06 · for you
         </motion.p>
 
         <motion.h1
@@ -51,6 +51,15 @@ export default function Hero({ entered }: { entered: boolean }) {
         >
           happy eight months, my love —{" "}
           <span className="text-shimmer font-semibold">i love you the mostest.</span>
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.05, duration: 1 }}
+          className="font-hand text-2xl text-rose"
+        >
+          🌸 the lily — your favourite flower
         </motion.p>
 
         <motion.div

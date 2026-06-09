@@ -11,7 +11,7 @@ export default function Letters() {
             some things i needed to say
           </Reveal>
           <Reveal as="h2" delay={1} className="mt-3 font-display text-4xl italic text-plum sm:text-5xl">
-            four letters, for you
+            five letters, for you
           </Reveal>
           <Reveal as="p" delay={2} className="mt-3 font-serif text-lg italic text-ink/60">
             tap each one. take your time.

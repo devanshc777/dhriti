@@ -49,6 +49,19 @@ export const letters: Letter[] = [
     signoff: "yours, staring",
   },
   {
+    id: "lily",
+    seal: "🌸",
+    flap: "your flower",
+    title: "why the lily",
+    body: [
+      "your favourite flower is the lily, and the more i think about it the more it feels less like a coincidence and more like a description of you.",
+      "the lily means purity and devotion — and i've never met anyone who loves as wholeheartedly as you do, with nothing held back. it also means rebirth: the way it blooms slow and then all at once, the way you bloomed into d2creates, into the woman you're becoming.",
+      "and lilies have always been the flower of motherhood — gentle, protective, life-giving. of course that's your flower. of course it is.",
+      "so this whole little world is lilies, because it's the closest thing i have to drawing you.",
+    ],
+    signoff: "you, in flower form",
+  },
+  {
     id: "future",
     seal: "🏡",
     flap: "someday",
