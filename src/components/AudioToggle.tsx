@@ -1,30 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { asset } from "../lib/motion";
 
-// Fixed mute/play control. Off by default (browsers block autoplay).
-// Drop a track at public/audio/song.mp3 — gracefully no-ops if missing.
-export default function AudioToggle({ start }: { start: boolean }) {
+// Fixed mute/play control. OFF by default — music only starts when tapped.
+// Drop a track at public/audio/song.mp3 — gracefully hides if missing.
+export default function AudioToggle({ start: _start }: { start: boolean }) {
   const ref = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const [hasAudio, setHasAudio] = useState(true);
-
-  // when the user enters the site, try to fade music in (counts as a gesture)
-  useEffect(() => {
-    if (!start) return;
-    const a = ref.current;
-    if (!a) return;
-    a.volume = 0;
-    a.play()
-      .then(() => {
-        setPlaying(true);
-        const id = setInterval(() => {
-          if (a.volume < 0.55) a.volume = Math.min(0.55, a.volume + 0.03);
-          else clearInterval(id);
-        }, 120);
-      })
-      .catch(() => setPlaying(false));
-  }, [start]);
 
   const toggle = () => {
     const a = ref.current;
