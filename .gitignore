@@ -1,0 +1,10 @@
+node_modules/
+dist/
+temp/
+image_references/
+.DS_Store
+*.local
+.vite/
+test-results/
+playwright-report/
+.playwright/
