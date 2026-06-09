@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/* ---- design tokens ---- */
+@theme {
+  --color-ivory: #faf6f0;
+  --color-cream: #f3ead9;
+  --color-blush: #e8b4b8;
+  --color-rose: #d98a9a;
+  --color-sage: #a8bba0;
+  --color-moss: #7f9678;
+  --color-gold: #c9a24b;
+  --color-ink: #3a3238;
+  --color-plum: #4a3340;
+
+  /* d2creates brand brights — used only in the art section */
+  --color-d2-pink: #ff4fa3;
+  --color-d2-teal: #1fb1c4;
+  --color-d2-yellow: #ffd23f;
+  --color-d2-purple: #8b5cf6;
+  --color-d2-orange: #ff8a3d;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-hand: "Caveat", "Segoe Script", cursive;
+  --font-sans: "Nunito", system-ui, sans-serif;
+}
+
+/* ---- base ---- */
+html {
+  scroll-behavior: auto; /* Lenis owns scrolling */
+}
+body {
+  margin: 0;
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+/* lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--color-blush);
+  color: var(--color-plum);
+}
+
+/* soft paper grain overlay helper */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- keyframes ---- */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.animate-floaty { animation: floatY 6s ease-in-out infinite; }
+.animate-sway { animation: sway 7s ease-in-out infinite; transform-origin: bottom center; }
+.animate-twinkle { animation: twinkle 4s ease-in-out infinite; }
+
+/* gold shimmering text */
+.text-shimmer {
+  background: linear-gradient(100deg, var(--color-gold) 20%, #f3e3b3 40%, var(--color-gold) 60%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+/* reduced motion: calm everything */
+@media (prefers-reduced-motion: reduce) {
+  .animate-floaty,
+  .animate-sway,
+  .animate-twinkle,
+  .text-shimmer { animation: none !important; }
+  * { scroll-behavior: auto !important; }
+}
